@@ -1,9 +1,12 @@
 package com.ctci.arraysandstrings;
-
+/**
+ * @author Siddharth Sharma
+ *Check if all the characters in the string are unique
+ *CTCI 1.1 
+ */
 import java.util.Arrays;
 
-//Check if all the characters in the string are unique
-//CTCI 1.1
+
 public class isUnique {
 	//When checking without using a Data Structure. The time complexity is nlog(n) for sorting plus O(n) for comparision
 	private boolean checkUniqueCharsNoDS(String strUniqueStringCheck){
@@ -38,6 +41,20 @@ public class isUnique {
 				return false;
 			else
 				boolCharCheck[iCurrentChar] = true;
+		}
+		return true;
+	}
+	
+	//This method reduces space complexity, because it uses just one int variable. It can only be used for strings containing only lower case letters from a to z 
+	private boolean checkUniqueCharsBitVector(String strUniqueStringCheck) {
+		int checker = 0;
+		for(int i=0; i<strUniqueStringCheck.length();i++) {
+			int num = strUniqueStringCheck.charAt(i) - 'a';
+			//If the bit is already set to 1 in checker, then that particular char is repeating. Hence return false.
+			if((checker&(1 << num))>0)
+				return false;
+			//Make the bit corresponding to the char in ith loc as 1 in checker.
+			checker |= (1 << num);
 		}
 		return true;
 	}
