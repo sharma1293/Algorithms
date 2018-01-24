@@ -2,7 +2,7 @@ package com.ctci.arraysandstrings;
 /**
  * 
  * @author Siddharth Sharma
- *
+ *CTCI 1.2
  *Given 2 strings, check if one is permutation of other.
  */
 public class CheckPermutation {
