@@ -3,6 +3,7 @@ package com.ctci.arraysandstrings;
  * @author Siddharth Sharma
  *Check if all the characters in the string are unique
  *CTCI 1.1 
+ *If the string contain spaces, the spaces will be considered as repeating characters
  */
 import java.util.Arrays;
 
@@ -35,7 +36,7 @@ public class isUnique {
 		//Case2:
 		boolean[] boolCharCheck = new boolean[128];
 		for(int i = 0; i<strUniqueStringCheck.length(); i++) {
-			int iCurrentChar = Character.getNumericValue(strUniqueStringCheck.charAt(i));
+			int iCurrentChar = strUniqueStringCheck.charAt(i);
 			//If the boolean for that char is already true, then it has already been set. Hence return false
 			if(boolCharCheck[iCurrentChar])
 				return false;
@@ -62,7 +63,7 @@ public class isUnique {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		isUnique iu = new isUnique();
-		String[] strSamples = new String[]{"Computers","Concurrence"};
+		String[] strSamples = new String[]{"Computers","Concurrence","This is a test string"};
 		for(String strSample: strSamples)
 			System.out.println("The given string ["+strSample+"] has unique characters: "+iu.checkUniqueChars(strSample));//Test with iu.checkUniqueCharsNoDS() for testing with method using no data structure
 	}
